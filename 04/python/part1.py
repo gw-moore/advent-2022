@@ -17,7 +17,7 @@ class Section:
 
 
 @dataclass
-class ElfSectionPair:
+class SectionPair:
     section1: set
     section2: set
 
@@ -34,7 +34,7 @@ class ElfSectionPair:
 print(section_pairs)
 running_total = 0
 for section_pair in section_pairs:
-    elf_pair = ElfSectionPair.from_list(section_pair)
+    elf_pair = SectionPair.from_list(section_pair)
     if elf_pair.test_subset():
         running_total += 1
 
