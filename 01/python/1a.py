@@ -15,9 +15,6 @@ for line in lines:
 
 # catch the last elf
 elfs.append(elf)
-
-total = []
-for elf in elfs:
-    total.append(sum(elf))
+total = [sum(elf) for elf in elfs]
 
 print(f"Max calories: {max(total)}")
