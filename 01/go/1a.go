@@ -24,7 +24,7 @@ func ReadLines(filepath string) []string {
 	return lines
 }
 
-func q1(input []string) []int {
+func SumElfCalories(input []string) []int {
 	elves := []int{}
 	var sum int = 0
 	for _, line := range input {
@@ -49,6 +49,6 @@ func q1(input []string) []int {
 func main() {
 	file := os.Args[1]
 	lines := ReadLines(file)
-	elves := q1(lines)
+	elves := SumElfCalories(lines)
 	fmt.Printf("Max calories: %v\n", elves[0])
 }
