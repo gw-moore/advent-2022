@@ -4,21 +4,21 @@ import sys
 file = sys.argv[1]
 lines = Path(file).read_text().split("\n")
 
-elfs: list[list[str]] = []
+elves: list[list[str]] = []
 elf: list[str] = []
 
 for line in lines:
     if line == "":
-        elfs.append(elf)
+        elves.append(elf)
         elf = []
         continue
     elf.append(int(line))
 
 # catch the last elf
-elfs.append(elf)
+elves.append(elf)
 
 total = []
-for elf in elfs:
+for elf in elves:
     total.append(sum(elf))
 
 total.sort(reverse=True)
