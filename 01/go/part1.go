@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-func ReadLines(filepath string) []string {
+func readLines(filepath string) []string {
 	file, err := os.Open(filepath)
 	if err != nil {
 		log.Fatal(err)
@@ -24,7 +24,7 @@ func ReadLines(filepath string) []string {
 	return lines
 }
 
-func SumElfCalories(input []string) []int {
+func sumElfCalories(input []string) []int {
 	elves := []int{}
 	var sum int = 0
 	for _, line := range input {
@@ -48,7 +48,7 @@ func SumElfCalories(input []string) []int {
 
 func main() {
 	file := os.Args[1]
-	lines := ReadLines(file)
-	elves := SumElfCalories(lines)
+	lines := readLines(file)
+	elves := sumElfCalories(lines)
 	fmt.Printf("Max calories: %v\n", elves[0])
 }
