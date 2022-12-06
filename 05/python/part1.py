@@ -20,16 +20,6 @@ raw_instructions = Path(path).read_text().split("\n")
 raw_instructions = [i.split(" ") for i in raw_instructions]
 instructions = [Move.from_str(s) for s in raw_instructions]
 
-#     [P]                 [Q]     [T]
-# [F] [N]             [P] [L]     [M]
-# [H] [T] [H]         [M] [H]     [Z]
-# [M] [C] [P]     [Q] [R] [C]     [J]
-# [T] [J] [M] [F] [L] [G] [R]     [Q]
-# [V] [G] [D] [V] [G] [D] [N] [W] [L]
-# [L] [Q] [S] [B] [H] [B] [M] [L] [D]
-# [D] [H] [R] [L] [N] [W] [G] [C] [R]
-#  1   2   3   4   5   6   7   8   9
-
 stacks = {
     "stack1": ["D", "L", "V", "T", "M", "H", "F"],
     "stack2": ["H", "Q", "G", "J", "C", "T", "N", "P"],
