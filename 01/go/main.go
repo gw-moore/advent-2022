@@ -1,6 +1,8 @@
 package main
 
-import "os"
+import (
+	"os"
+)
 
 func main() {
 	if len(os.Args) < 3 {
@@ -11,7 +13,7 @@ func main() {
 	case "a":
 		part1(filename)
 	case "b":
-		// part2(filename)
+		part2(filename)
 	default:
 		panic("Unknown part argument")
 	}

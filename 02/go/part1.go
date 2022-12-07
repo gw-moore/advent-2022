@@ -60,8 +60,7 @@ func evalGame(oppMove, myMove string) int {
 	return playValue
 }
 
-func main() {
-	file := os.Args[1]
+func part1(file string) {
 	lines, err := readLines(file)
 
 	if err != nil {

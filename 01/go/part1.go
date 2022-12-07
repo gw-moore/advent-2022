@@ -46,8 +46,7 @@ func sumElfCalories(input []string) []int {
 	return elves
 }
 
-func main() {
-	file := os.Args[1]
+func part1(file string) {
 	lines := readLines(file)
 	elves := sumElfCalories(lines)
 	fmt.Printf("Max calories: %v\n", elves[0])
