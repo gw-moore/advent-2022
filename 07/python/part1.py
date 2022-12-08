@@ -26,14 +26,8 @@ def all_files(d: Dir) -> list[File]:
 class Dir:
     name: str
     files: list[File] = field(default_factory=list)
-    child_dirs: list[Dir] = field(default_factory=dict)
+    child_dirs: dict[Dir] = field(default_factory=dict)
     parent: Dir | None = None
-
-    @property
-    def size(self) -> int:
-        files_and_dirs = [*self.files, *self.child_dirs.values()]
-        sizes = map(lambda x: x.size, files_and_dirs)
-        return sum(sizes)
 
     def child_dirs_and_self(self) -> list[Dir]:
         result = [self]
@@ -76,11 +70,19 @@ def walk_list(lines: list[str]):
                 raise ValueError("Missing a case statement")
 
 
+def get_dir_size(d: Dir) -> int:
+    size = sum([f.size for f in d.files])
+    for child in d.child_dirs.values():
+        size += get_dir_size(child)
+
+    return size
+
+
 walk_list(lines)
 all_dirs = root_dir.child_dirs_and_self()
 answer = 0
 for d in all_dirs:
-    if d.size <= 100000:
-        answer += d.size
-
+    size = get_dir_size(d)
+    if size <= 100_000:
+        answer += size
 print(f"Answer: {answer}")
