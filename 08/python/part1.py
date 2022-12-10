@@ -1,9 +1,5 @@
-from __future__ import annotations
-
 from pathlib import Path
 from rich import print
-from rich.pretty import pprint
-from dataclasses import dataclass, field
 import numpy as np
 
 path = Path(__file__).parents[1] / "data.txt"
@@ -11,17 +7,7 @@ lines = []
 for line in Path(path).read_text().split("\n"):
     lines.append([int(s) for s in line])
 
-# lines = [
-#     [int(s) for s in "30373"],
-#     [int(s) for s in "25512"],
-#     [int(s) for s in "65332"],
-#     [int(s) for s in "33549"],
-#     [int(s) for s in "35390"],
-# ]
-
 matrix = np.array(lines)
-
-# question: how many trees are visible from outside the grid?
 
 # first, count the number of trees that make up the perimeter
 nrows, ncols = matrix.shape
